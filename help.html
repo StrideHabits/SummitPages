@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Help & FAQ – Stride Habits</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Help and FAQ for Stride Habits – a personal habit tracking app." />
+
+    <style>
+        :root {
+            --bg: #0b0d10;
+            --bg-soft: #11151d;
+            --surface: #151a24;
+            --surface-soft: #1b2230;
+            --border: #252b3a;
+            --text: #e4e7ef;
+            --muted: #9ba3b6;
+            --accent: #3b82f6;
+            --accent-soft: rgba(59,130,246,0.14);
+            --danger: #f97373;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow-soft: 0 18px 45px rgba(0,0,0,0.35);
+            color-scheme: dark;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #f4f5fb;
+                --bg-soft: #e8ebf7;
+                --surface: #ffffff;
+                --surface-soft: #f4f6ff;
+                --border: #d4daea;
+                --text: #151827;
+                --muted: #4b5468;
+                --accent: #2563eb;
+                --accent-soft: rgba(37,99,235,0.12);
+                --danger: #dc2626;
+                color-scheme: light;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                         "Segoe UI", Roboto, sans-serif;
+            background: radial-gradient(circle at top left, #111827, var(--bg));
+            color: var(--text);
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 16px;
+        }
+
+        .page-wrap {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .card {
+            background: radial-gradient(circle at top, #111827 0, var(--surface) 40%, var(--surface-soft) 100%);
+            border-radius: 24px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border);
+            padding: 28px 22px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 720px) {
+            .card {
+                padding: 32px 36px 28px;
+            }
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            opacity: 0.12;
+            background:
+                radial-gradient(circle at 0% 0%, #3b82f6, transparent 55%),
+                radial-gradient(circle at 100% 0%, #ec4899, transparent 55%);
+            pointer-events: none;
+        }
+
+        .card-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148,163,184,0.35);
+            background: linear-gradient(120deg, rgba(15,23,42,0.9), rgba(15,23,42,0.6));
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .chip-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 0, #22c55e, #15803d);
+            box-shadow: 0 0 0 1px rgba(34,197,94,0.35),
+                        0 0 10px rgba(34,197,94,0.7);
+        }
+
+        h1 {
+            font-size: clamp(26px, 3vw, 32px);
+            margin: 0 0 4px 0;
+            letter-spacing: -0.04em;
+        }
+
+        .subtitle {
+            margin: 0 0 16px 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .meta strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 2px 10px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: var(--accent);
+        }
+
+        .content {
+            margin-top: 10px;
+            padding-top: 16px;
+            border-top: 1px dashed rgba(148,163,184,0.45);
+            display: grid;
+            grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+            gap: 22px;
+        }
+
+        @media (max-width: 720px) {
+            .content {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        .section {
+            margin-bottom: 16px;
+        }
+
+        .section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .section-title span {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .section p {
+            margin: 4px 0 8px 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--muted);
+        }
+
+        .section ul {
+            margin: 4px 0 8px 18px;
+            padding: 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--muted);
+        }
+
+        .section ul li {
+            margin-bottom: 3px;
+        }
+
+        .side-card {
+            border-radius: 18px;
+            background: radial-gradient(circle at top, rgba(15,118,255,0.16), transparent 55%), var(--bg-soft);
+            border: 1px solid rgba(148,163,184,0.45);
+            padding: 14px 14px 12px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .side-card h3 {
+            margin: 0 0 6px 0;
+            font-size: 14px;
+        }
+
+        .side-card h4 {
+            margin: 10px 0 4px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 10px 0 6px;
+        }
+
+        .badge {
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(148,163,184,0.45);
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        .side-list {
+            margin: 4px 0 8px 16px;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        .side-list li {
+            margin-bottom: 3px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        small {
+            font-size: 11px;
+            color: var(--muted);
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <main class="card">
+        <div class="card-inner">
+            <div class="chip">
+                <span class="chip-dot"></span>
+                Help & FAQ
+            </div>
+            <h1>Stride Habits – Help & FAQ</h1>
+            <p class="subtitle">
+                Answers to common questions about using <strong>Stride Habits</strong>, a simple habit tracker built as a varsity project.
+            </p>
+
+            <div class="meta">
+                <div><strong>App:</strong> Stride Habits</div>
+                <div><strong>Platform:</strong> Android (Google Play)</div>
+                <div><strong>Focus:</strong> Getting started, features, and troubleshooting</div>
+                <div class="pill"><span class="pill-dot"></span> Last updated: 16 November 2025</div>
+            </div>
+
+            <div class="content">
+                <section>
+                    <div class="section" id="getting-started">
+                        <div class="section-title">
+                            <span>01</span><h2>Getting Started</h2>
+                        </div>
+                        <p><strong>What is Stride Habits?</strong></p>
+                        <p>
+                            Stride Habits is a light-weight habit app where you can create routines, track completions and streaks, and optionally attach images
+                            to your entries. The goal is to give a clean, focused place to build small, positive habits.
+                        </p>
+                        <p><strong>Do I need an account?</strong></p>
+                        <p>
+                            You can use Stride Habits with basic local storage only. Some builds may offer Google Sign-In (via Firebase Authentication) to sync certain
+                            text-based habit data through the Summit API while the project is active. If you prefer to stay purely offline, you can choose not to sign in.
+                        </p>
+                    </div>
+
+                    <div class="section" id="add-edit-habits">
+                        <div class="section-title">
+                            <span>02</span><h2>Adding, Editing, and Deleting Habits</h2>
+                        </div>
+                        <p><strong>How do I add a new habit?</strong></p>
+                        <ul>
+                            <li>Open the main Habits screen.</li>
+                            <li>Tap the add / plus button.</li>
+                            <li>Enter a habit name, choose how often it should repeat, and adjust any options (reminders, category, etc.).</li>
+                            <li>Save the habit to start tracking it.</li>
+                        </ul>
+                        <p><strong>How do I edit a habit?</strong></p>
+                        <ul>
+                            <li>Tap on the habit you want to change.</li>
+                            <li>Use the edit option (usually an icon or menu item).</li>
+                            <li>Update the schedule, name, or other fields and save.</li>
+                        </ul>
+                        <p><strong>How do I delete a habit?</strong></p>
+                        <ul>
+                            <li>Open the habit details or long-press on the habit.</li>
+                            <li>Select the delete option and confirm.</li>
+                            <li>Deleting a habit may also remove its completion history from your device.</li>
+                        </ul>
+                    </div>
+
+                    <div class="section" id="tracking-completions">
+                        <div class="section-title">
+                            <span>03</span><h2>Tracking Completions & Streaks</h2>
+                        </div>
+                        <p><strong>How do I mark a habit as done?</strong></p>
+                        <ul>
+                            <li>From the main list or calendar view, tap the day or checkmark for a habit.</li>
+                            <li>The app records that completion and updates your streak.</li>
+                        </ul>
+                        <p><strong>How are streaks calculated?</strong></p>
+                        <p>
+                            Streaks are based on how many scheduled days in a row you complete the habit. Skipping a scheduled day usually breaks the streak.
+                            Non-scheduled days do not affect the streak.
+                        </p>
+                    </div>
+
+                    <div class="section" id="images">
+                        <div class="section-title">
+                            <span>04</span><h2>Images & Attachments</h2>
+                        </div>
+                        <p><strong>Can I attach photos to habits?</strong></p>
+                        <p>
+                            Yes. You can attach images to certain habit entries (for example, a photo of a workout or completed task). This is optional.
+                        </p>
+                        <p><strong>Where are images stored?</strong></p>
+                        <p>
+                            Images are stored <strong>locally on your device only</strong>. They are not uploaded to the Summit API or any cloud storage as part of this project.
+                            If you uninstall the app or clear its data, these attachments are normally deleted with it.
+                        </p>
+                    </div>
+
+                    <div class="section" id="reminders">
+                        <div class="section-title">
+                            <span>05</span><h2>Reminders & Notifications</h2>
+                        </div>
+                        <p><strong>How do I turn reminders on?</strong></p>
+                        <ul>
+                            <li>Edit a habit and enable reminders for that habit.</li>
+                            <li>Choose the time(s) when you want to be reminded.</li>
+                            <li>Make sure notifications for Stride Habits are allowed in your Android system settings.</li>
+                        </ul>
+                        <p><strong>I am not receiving notifications.</strong></p>
+                        <ul>
+                            <li>Check that notifications for the app are enabled in system settings.</li>
+                            <li>Confirm that battery or power-saving modes are not blocking background work for Stride Habits.</li>
+                            <li>Verify that the reminder time has not already passed for that day.</li>
+                        </ul>
+                    </div>
+
+                    <div class="section" id="accounts-sync">
+                        <div class="section-title">
+                            <span>06</span><h2>Accounts, Sync & Summit API</h2>
+                        </div>
+                        <p><strong>What is the Summit API?</strong></p>
+                        <p>
+                            Summit API is a small backend service used for this varsity project to temporarily sync certain text-based habit data (like habit titles and completion flags)
+                            across sessions or devices. It is not a commercial product and has no long-term data retention plan.
+                        </p>
+                        <p><strong>Is everything synced?</strong></p>
+                        <ul>
+                            <li>Text-based habit information may be synced to Summit API while the project is live.</li>
+                            <li>Images and attachments remain on your device and are not uploaded to Summit API.</li>
+                        </ul>
+                        <p><strong>What happens when the project ends?</strong></p>
+                        <p>
+                            When the university project is shut down, the Summit API and its stored data are planned to be removed, subject to short-lived backups from the hosting provider.
+                            Stride Habits is not designed or marketed as a permanent cloud backup solution.
+                        </p>
+                    </div>
+
+                    <div class="section" id="privacy">
+                        <div class="section-title">
+                            <span>07</span><h2>Privacy & Security Basics</h2>
+                        </div>
+                        <p><strong>Which third-party services are used?</strong></p>
+                        <p>
+                            Stride Habits may use:
+                        </p>
+                        <ul>
+                            <li>Google Play Services (distribution and platform support).</li>
+                            <li>Firebase Authentication for optional Google Sign-In.</li>
+                            <li>Firebase Crashlytics and diagnostics for crash and error reporting.</li>
+                            <li>A hosting provider for the Summit API backend.</li>
+                        </ul>
+                        <p>
+                            There are no personalised advertising SDKs inside Stride Habits, and data is not sold to third parties.
+                        </p>
+                        <p>
+                            For full details, refer to the dedicated <a href="privacy.html">Privacy Policy</a> page if hosted, or the privacy link in the Play Store listing.
+                        </p>
+                    </div>
+
+                    <div class="section" id="troubleshooting">
+                        <div class="section-title">
+                            <span>08</span><h2>Troubleshooting & Known Limitations</h2>
+                        </div>
+                        <p><strong>The app feels slow or crashes.</strong></p>
+                        <ul>
+                            <li>Make sure you are running the latest version of Stride Habits from Google Play.</li>
+                            <li>Restart the app or, if needed, restart your device.</li>
+                            <li>If the problem repeats, Crashlytics may send an anonymised report to help the developer identify the issue in future updates.</li>
+                        </ul>
+                        <p><strong>Will there be constant updates?</strong></p>
+                        <p>
+                            Stride Habits is primarily a varsity project, created for learning and assessment. It may not receive regular long-term updates and is provided on an “as is” basis.
+                        </p>
+                        <p><strong>What should I do before uninstalling?</strong></p>
+                        <ul>
+                            <li>If you want to keep your habit history or images, manually back them up before uninstalling (for example, by copying screenshots or your own notes).</li>
+                            <li>Uninstalling the app or clearing its data normally removes all locally stored habit data and image attachments.</li>
+                        </ul>
+                    </div>
+
+                    <div class="section" id="health-disclaimer">
+                        <div class="section-title">
+                            <span>09</span><h2>Health & Safety Disclaimer</h2>
+                        </div>
+                        <p>
+                            Stride Habits is a “good vibes” habit tracker designed to encourage routines such as reading, exercise, or productivity tasks.
+                            It is <strong>not</strong> a medical, mental-health, or professional treatment tool.
+                        </p>
+                        <p>
+                            Do not rely on Stride Habits for medical, psychological, or emergency decisions. Always consult qualified professionals for health and safety matters.
+                        </p>
+                    </div>
+
+                    <div class="section" id="contact">
+                        <div class="section-title">
+                            <span>10</span><h2>Support & Feedback</h2>
+                        </div>
+                        <p>
+                            As a student project, Stride Habits has limited support capacity. If you encounter issues or have suggestions:
+                        </p>
+                        <ul>
+                            <li>Check this Help & FAQ page for answers.</li>
+                            <li>Review the app description and notes on the Google Play listing for any known issues.</li>
+                            <li>Use the developer contact information in the Play Store listing if available, or leave constructive feedback in a review so that problems can be identified for future versions.</li>
+                        </ul>
+                        <p>
+                            There is no guarantee of individual responses, but feedback helps guide improvements while the project is still active.
+                        </p>
+                    </div>
+                </section>
+
+                <aside class="side-card">
+                    <h3>Quick Guide</h3>
+                    <p>
+                        Stride Habits is meant to stay simple: create a habit, mark it done, keep a streak, and optionally attach a photo as proof or motivation.
+                    </p>
+
+                    <div class="badge-list">
+                        <span class="badge">Create habits fast</span>
+                        <span class="badge">Tap to complete</span>
+                        <span class="badge">Images stay local</span>
+                        <span class="badge">No ads or feeds</span>
+                        <span class="badge">Student-built project</span>
+                    </div>
+
+                    <h4>Most common actions</h4>
+                    <ul class="side-list">
+                        <li><strong>Add a habit:</strong> Tap the + button, fill in the details, and save.</li>
+                        <li><strong>Mark done:</strong> Tap the checkmark or day cell for that habit.</li>
+                        <li><strong>Change schedule:</strong> Open the habit and edit its repeat options.</li>
+                        <li><strong>Attach a photo:</strong> On supported screens, choose the image option and select a picture.</li>
+                    </ul>
+
+                    <h4>Good to know</h4>
+                    <ul class="side-list">
+                        <li>Text habit data may sync via Summit API while the project is active.</li>
+                        <li>Photos and attachments are stored only on your device.</li>
+                        <li>The app is provided “as is” for learning and personal use.</li>
+                    </ul>
+
+                    <h4>Need more detail?</h4>
+                    <p>
+                        For information about how data is handled and which services are used, see the separate Privacy Policy linked from the Google Play listing
+                        or from the main Stride Habits website if available.
+                    </p>
+
+                    <small>
+                        This Help & FAQ page reflects the current behaviour of Stride Habits at the time of publication. Features may change between versions,
+                        especially while the varsity project is active.
+                    </small>
+                </aside>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
