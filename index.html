@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Privacy Policy – Stride Habits</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Privacy Policy for Stride Habits – a personal habit tracking app." />
+
+    <style>
+        :root {
+            --bg: #0b0d10;
+            --bg-soft: #11151d;
+            --surface: #151a24;
+            --surface-soft: #1b2230;
+            --border: #252b3a;
+            --text: #e4e7ef;
+            --muted: #9ba3b6;
+            --accent: #3b82f6;
+            --accent-soft: rgba(59,130,246,0.14);
+            --danger: #f97373;
+            --radius-lg: 16px;
+            --radius-sm: 8px;
+            --shadow-soft: 0 18px 45px rgba(0,0,0,0.35);
+            color-scheme: dark;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #f4f5fb;
+                --bg-soft: #e8ebf7;
+                --surface: #ffffff;
+                --surface-soft: #f4f6ff;
+                --border: #d4daea;
+                --text: #151827;
+                --muted: #4b5468;
+                --accent: #2563eb;
+                --accent-soft: rgba(37,99,235,0.12);
+                --danger: #dc2626;
+                color-scheme: light;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                         "Segoe UI", Roboto, sans-serif;
+            background: radial-gradient(circle at top left, #111827, var(--bg));
+            color: var(--text);
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 32px 16px;
+        }
+
+        .page-wrap {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .card {
+            background: radial-gradient(circle at top, #111827 0, var(--surface) 40%, var(--surface-soft) 100%);
+            border-radius: 24px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border);
+            padding: 28px 22px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 720px) {
+            .card {
+                padding: 32px 36px 28px;
+            }
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: -40%;
+            opacity: 0.12;
+            background:
+                radial-gradient(circle at 0% 0%, #3b82f6, transparent 55%),
+                radial-gradient(circle at 100% 0%, #ec4899, transparent 55%);
+            pointer-events: none;
+        }
+
+        .card-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148,163,184,0.35);
+            background: linear-gradient(120deg, rgba(15,23,42,0.9), rgba(15,23,42,0.6));
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .chip-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 30% 0, #22c55e, #15803d);
+            box-shadow: 0 0 0 1px rgba(34,197,94,0.35),
+                        0 0 10px rgba(34,197,94,0.7);
+        }
+
+        h1 {
+            font-size: clamp(26px, 3vw, 32px);
+            margin: 0 0 4px 0;
+            letter-spacing: -0.04em;
+        }
+
+        .subtitle {
+            margin: 0 0 16px 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 18px;
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .meta strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 2px 10px;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .pill-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: var(--accent);
+        }
+
+        .content {
+            margin-top: 10px;
+            padding-top: 16px;
+            border-top: 1px dashed rgba(148,163,184,0.45);
+            display: grid;
+            grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+            gap: 22px;
+        }
+
+        @media (max-width: 720px) {
+            .content {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        .section {
+            margin-bottom: 16px;
+        }
+
+        .section:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .section-title span {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-size: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .section p {
+            margin: 4px 0 8px 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--muted);
+        }
+
+        .section ul {
+            margin: 4px 0 8px 18px;
+            padding: 0;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--muted);
+        }
+
+        .section ul li {
+            margin-bottom: 3px;
+        }
+
+        .side-card {
+            border-radius: 18px;
+            background: radial-gradient(circle at top, rgba(15,118,255,0.16), transparent 55%), var(--bg-soft);
+            border: 1px solid rgba(148,163,184,0.45);
+            padding: 14px 14px 12px;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .side-card h3 {
+            margin: 0 0 6px 0;
+            font-size: 14px;
+        }
+
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 10px 0 6px;
+        }
+
+        .badge {
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(148,163,184,0.45);
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        small {
+            font-size: 11px;
+            color: var(--muted);
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <main class="card">
+        <div class="card-inner">
+            <div class="chip">
+                <span class="chip-dot"></span>
+                Privacy & Data Protection
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="subtitle">
+                This Privacy Policy explains how <strong>Stride Habits</strong> collects, uses, and protects your information when you use the app to track and complete habits.
+            </p>
+
+            <div class="meta">
+                <div><strong>App:</strong> Stride Habits</div>
+                <div><strong>Platform:</strong> Android (Google Play)</div>
+                <div><strong>Scope:</strong> Use of the Stride Habits mobile application</div>
+                <div class="pill"><span class="pill-dot"></span> Last updated: 16 November 2025</div>
+            </div>
+
+            <div class="content">
+                <section>
+                    <div class="section">
+                        <div class="section-title">
+                            <span>01</span><h2>Introduction</h2>
+                        </div>
+                        <p>
+                            Stride Habits is a personal habit app that allows you to create habits, schedule them, track completions and streaks, and optionally attach images to your entries.
+                            By installing or using Stride Habits (the “App”), you agree to the collection and use of information as described in this Privacy Policy.
+                            If you do not agree with this Policy, please uninstall the App and discontinue use.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">
+                            <span>02</span><h2>Information We Collect</h2>
+                        </div>
+                        <p>The App is designed to collect only the information needed for habit tracking and basic diagnostics. This includes:</p>
+                        <ul>
+                            <li><strong>Habit data</strong> – habit names, schedules, categories, notes, completion history, and streaks.</li>
+                            <li><strong>Reminder data</strong> – times and settings for notifications and reminders you enable for specific habits (where available).</li>
+                            <li><strong>Images you attach</strong> – photos or images you choose to link to a habit or completion entry.</li>
+                            <li><strong>Device and usage data</strong> – anonymous technical information such as device model, operating system version, app version, and basic in-app events used to keep the App stable and improve features.</li>
+                        </ul>
+                        <p>
+                            The App does not require you to create a public profile or share your habit content with other users.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">
+                            <span>03</span><h2>How Your Information Is Stored</h2>
+                        </div>
+                        <p>
+                            By default, your habit data (including images you attach) is stored locally on your device’s storage and/or in the App’s local database.
+                            This means:
+                        </p>
+                        <ul>
+                            <li>Your habits, completions, and attached images are primarily accessible only from your device.</li>
+                            <li>Uninstalling the App or clearing its data through your device settings will normally remove this local data.</li>
+                        </ul>
+                        <p>
+                            If future versions of Stride Habits introduce optional cloud backup or sync features, you will be clearly informed in-app and this Privacy Policy will be updated to describe where and how that data is stored.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">
+                            <span>04</span><h2>How We Use Your Information</h2>
+                        </div>
+                        <p>Information collected by the App is used to:</p>
+                        <ul>
+                            <li>Display and manage your habits, streaks, and completion history.</li>
+                            <li>Schedule and deliver reminders or notifications you choose to enable.</li>
+                            <li>Store your in-app preferences (such as theme or language, where available).</li>
+                            <li>Maintain and improve app stability, performance, and security.</li>
+                        </ul>
+                        <p>
+                            Habit content (names, notes, and attached images) is used only to provide the features inside Stride Habits and is not used for advertising profiling.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">
+                            <span>05</span><h2>Third-Party Services</h2>
+                        </div>
+                        <p>
+                            The App may rely on platform services and libraries such as:
+                        </p>
+                        <ul>
+                            <li>Google Play and Google Play Services (for installation, updates, in-app purchases where applicable, and basic services).</li>
+                            <li>Crash reporting and analytics tools that process anonymised or aggregated information to help identify errors, measure usage, and improve reliability.</li>
+                            <li>Notification services provided by your device’s operating system.</li>
+                        </ul>
+                        <p>
+                            These services may receive limited technical information (for example, anonymous identifiers, crash logs, device type, and app version) in order to operate.
+                            They are required to process that information under their own privacy policies, which are separate from this document.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">
+                            <span>06</span><h2>Data Sharing</h2>
+                        </div>
+                        <p>
+                            Stride Habits is not a social network and does not automatically share your habit data with other users.
+                            Your data is not sold to third parties.
+                        </p>
+                        <p>Data may be shared only in limited circumstances, for example:</p>
+                        <ul>
+                            <li>With service providers that host or process data on our behalf (e.g., crash reporting or analytics), under contracts that limit their use of the data.</li>
+                            <li>When required by law, regulation, or a valid legal request.</li>
+                        </ul>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">
+                            <span>07</span><h2>Data Security</h2>
+                        </div>
+                        <p>
+                            Reasonable technical and organisational measures are used to help protect your information against loss, misuse, and unauthorised access.
+                            However, no method of storage or transmission is completely secure, and complete security cannot be guaranteed.
+                        </p>
+                        <p>
+                            Where possible, communication with third-party services uses encrypted connections (such as HTTPS/TLS), and the App limits collection to what is necessary to provide its features.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">
+                            <span>08</span><h2>Your Rights & Controls</h2>
+                        </div>
+                        <p>
+                            Depending on your country or region, you may have specific rights over your personal data (for example, to access, correct, or delete it).
+                            Within the App and on your device, you generally have the ability to:
+                        </p>
+                        <ul>
+                            <li>Edit or delete habits, notes, and completion entries directly in the App.</li>
+                            <li>Delete attached images by removing them from the relevant habit or entry.</li>
+                            <li>Disable notifications for specific habits or for the App entirely through system settings.</li>
+                            <li>Clear the App’s local data or uninstall the App, which normally removes locally stored data from your device.</li>
+                        </ul>
+                        <p>
+                            If the App later provides additional ways to export or manage your data (for example, an export to file feature), those options will be described in-app.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">
+                            <span>09</span><h2>Retention</h2>
+                        </div>
+                        <p>
+                            Your habit data is retained on your device for as long as you keep it in the App and do not delete it.
+                            If the App uses any remote services in future versions (for example, optional backup), data stored there will be retained only for as long as needed to provide the service or as required by law, and details will be provided in an updated version of this Policy.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">
+                            <span>10</span><h2>Children’s Privacy</h2>
+                        </div>
+                        <p>
+                            Stride Habits is designed as a general-audience productivity tool and is not specifically directed at children.
+                            It does not knowingly collect personal information from children under the minimum age of digital consent in your region without the involvement of a parent or legal guardian.
+                        </p>
+                        <p>
+                            If you are a parent or guardian and believe that a child has provided personal data through the App without your consent, you can remove that data by deleting the relevant habits and entries or by uninstalling the App from the child’s device.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">
+                            <span>11</span><h2>Changes to This Policy</h2>
+                        </div>
+                        <p>
+                            This Privacy Policy may be updated from time to time, for example to reflect new features or changes in legal requirements.
+                            When updates are made, the “Last updated” date at the top of this Policy will be changed.
+                        </p>
+                        <p>
+                            If a change is significant, reasonable steps will be taken to draw your attention to it (for example, highlighting it in the App or on the store listing) where required.
+                            Continued use of the App after changes become effective means you accept the updated Policy.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">
+                            <span>12</span><h2>Questions and Contact</h2>
+                        </div>
+                        <p>
+                            If you have questions or concerns about this Privacy Policy or how Stride Habits handles data, please refer to the developer contact details provided on the Stride Habits listing on Google Play.
+                        </p>
+                    </div>
+                </section>
+
+                <aside class="side-card">
+                    <h3>Quick Summary (Not Legally Binding)</h3>
+                    <p>
+                        This is a human-readable summary. The full policy text is the legally relevant version.
+                    </p>
+                    <div class="badge-list">
+                        <span class="badge">Personal habit tracker</span>
+                        <span class="badge">Data stored on your device</span>
+                        <span class="badge">Images only if you attach them</span>
+                        <span class="badge">Used to run and improve the app</span>
+                        <span class="badge">No automatic social sharing</span>
+                    </div>
+                    <p>
+                        Stride Habits keeps your habit data focused on your device and uses it to show your schedules, completions, and streaks.
+                        Limited technical data may be sent to trusted services (like crash reporting) to keep the App reliable.
+                        Your data is not sold to third parties.
+                    </p>
+                    <p>
+                        For deletion, you can remove entries inside the App or remove all local data by clearing the App’s storage or uninstalling it from your device.
+                    </p>
+                    <small>
+                        This Policy is intended to support common privacy requirements for app stores such as Google Play.
+                        Privacy laws differ between countries; if you have specific compliance questions, consider obtaining independent legal advice.
+                    </small>
+                </aside>
+            </div>
+        </div>
+    </main>
+</div>
+</body>
+</html>
