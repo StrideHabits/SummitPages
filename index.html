@@ -244,6 +244,14 @@
             font-size: 14px;
         }
 
+        .side-card h4 {
+            margin: 10px 0 4px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+        }
+
         .badge-list {
             display: flex;
             flex-wrap: wrap;
@@ -257,6 +265,16 @@
             border: 1px solid rgba(148,163,184,0.45);
             font-size: 11px;
             color: var(--muted);
+        }
+
+        .side-list {
+            margin: 4px 0 8px 16px;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        .side-list li {
+            margin-bottom: 3px;
         }
 
         a {
@@ -315,7 +333,7 @@
                         <ul>
                             <li><strong>Habit data</strong> – habit names, schedules, categories, notes, completion history, and streaks.</li>
                             <li><strong>Reminder data</strong> – times and settings for notifications and reminders you enable for specific habits (where available).</li>
-                            <li><strong>Images you attach</strong> – photos or images you choose to link to a habit or completion entry.</li>
+                            <li><strong>Images you attach</strong> – photos or images you choose to link to a habit or completion entry. These are stored locally on your device and are not uploaded to the Summit API or other remote storage.</li>
                             <li><strong>Device and usage data</strong> – anonymous technical information such as device model, operating system version, app version, and basic in-app events used to keep the App stable and improve features.</li>
                         </ul>
                         <p>
@@ -328,15 +346,17 @@
                             <span>03</span><h2>How Your Information Is Stored</h2>
                         </div>
                         <p>
-                            By default, your habit data (including images you attach) is stored locally on your device’s storage and/or in the App’s local database.
-                            This means:
+                            Stride Habits uses a combination of local storage on your device and a small backend service called the <strong>Summit API</strong>.
                         </p>
                         <ul>
-                            <li>Your habits, completions, and attached images are primarily accessible only from your device.</li>
-                            <li>Uninstalling the App or clearing its data through your device settings will normally remove this local data.</li>
+                            <li><strong>On your device</strong> – your habits, completions, settings, and any images you attach are stored in a local database and files on your device.</li>
+                            <li><strong>Summit API (backend)</strong> – text-based habit data (such as names, schedules, and completion flags) may be synchronised to the Summit API when your device is online so that the App can keep data consistent between sessions and devices while this project is active.</li>
                         </ul>
                         <p>
-                            If future versions of Stride Habits introduce optional cloud backup or sync features, you will be clearly informed in-app and this Privacy Policy will be updated to describe where and how that data is stored.
+                            Images are currently stored <strong>locally only</strong> and are not sent to the Summit API or to Firebase storage.
+                        </p>
+                        <p>
+                            Summit API exists to support a university (varsity) software project. It has no commercial business model and no long-term plan to keep data beyond the life of the project. When the project is shut down, data stored in the Summit API will be deleted as part of that shutdown, subject to any short-term backups retained by the hosting provider.
                         </p>
                     </div>
 
@@ -352,7 +372,7 @@
                             <li>Maintain and improve app stability, performance, and security.</li>
                         </ul>
                         <p>
-                            Habit content (names, notes, and attached images) is used only to provide the features inside Stride Habits and is not used for advertising profiling.
+                            Habit content (names, notes, and attached images) is used only to provide the features inside Stride Habits and is not used for advertising profiling or sold to third parties.
                         </p>
                     </div>
 
@@ -361,16 +381,17 @@
                             <span>05</span><h2>Third-Party Services</h2>
                         </div>
                         <p>
-                            The App may rely on platform services and libraries such as:
+                            The App may rely on the following platform services and libraries:
                         </p>
                         <ul>
-                            <li>Google Play and Google Play Services (for installation, updates, in-app purchases where applicable, and basic services).</li>
-                            <li>Crash reporting and analytics tools that process anonymised or aggregated information to help identify errors, measure usage, and improve reliability.</li>
-                            <li>Notification services provided by your device’s operating system.</li>
+                            <li><strong>Google Play and Google Play Services</strong> – for installation, updates, and platform-level services.</li>
+                            <li><strong>Firebase Authentication</strong> – to support optional Google Sign-In (Google SSO) so that you can log in with your Google account instead of a separate password.</li>
+                            <li><strong>Firebase Crashlytics and related diagnostics</strong> – to process anonymised crash reports and technical events so problems can be identified and fixed.</li>
+                            <li><strong>Hosting provider for Summit API</strong> – to run the backend server that temporarily stores habit data while the project is active.</li>
                         </ul>
                         <p>
                             These services may receive limited technical information (for example, anonymous identifiers, crash logs, device type, and app version) in order to operate.
-                            They are required to process that information under their own privacy policies, which are separate from this document.
+                            They process that information under their own privacy policies. Stride Habits does not include personalised advertising SDKs and does not sell your data.
                         </p>
                     </div>
 
@@ -380,13 +401,15 @@
                         </div>
                         <p>
                             Stride Habits is not a social network and does not automatically share your habit data with other users.
-                            Your data is not sold to third parties.
                         </p>
                         <p>Data may be shared only in limited circumstances, for example:</p>
                         <ul>
-                            <li>With service providers that host or process data on our behalf (e.g., crash reporting or analytics), under contracts that limit their use of the data.</li>
+                            <li>With service providers that host or process data on our behalf (such as the Summit API hosting provider and Firebase), under terms that limit their use of the data to operating and improving the service.</li>
                             <li>When required by law, regulation, or a valid legal request.</li>
                         </ul>
+                        <p>
+                            Your data is not sold to third parties and there is no intention to commercialise user data from this project.
+                        </p>
                     </div>
 
                     <div class="section">
@@ -427,7 +450,10 @@
                         </div>
                         <p>
                             Your habit data is retained on your device for as long as you keep it in the App and do not delete it.
-                            If the App uses any remote services in future versions (for example, optional backup), data stored there will be retained only for as long as needed to provide the service or as required by law, and details will be provided in an updated version of this Policy.
+                        </p>
+                        <p>
+                            Data stored in the Summit API exists only to support this varsity project. It is intended to be kept for the duration of the project and then removed when the project is shut down.
+                            Short-term backups may be retained for a limited period by the hosting provider but are not kept indefinitely.
                         </p>
                     </div>
 
@@ -436,7 +462,7 @@
                             <span>10</span><h2>Children’s Privacy</h2>
                         </div>
                         <p>
-                            Stride Habits is designed as a general-audience productivity tool and is not specifically directed at children.
+                            Stride Habits is designed as a general-audience productivity tool for adults and older teens and is not aimed at young children.
                             It does not knowingly collect personal information from children under the minimum age of digital consent in your region without the involvement of a parent or legal guardian.
                         </p>
                         <p>
@@ -446,7 +472,20 @@
 
                     <div class="section">
                         <div class="section-title">
-                            <span>11</span><h2>Changes to This Policy</h2>
+                            <span>11</span><h2>Not Medical or Professional Advice</h2>
+                        </div>
+                        <p>
+                            Stride Habits is a simple habit and routine tracker intended to support general wellbeing and productivity.
+                            It is <strong>not</strong> a medical, mental-health, or professional healthcare application and does not provide medical advice, diagnosis, or treatment.
+                        </p>
+                        <p>
+                            You use the App at your own risk. Do not rely on Stride Habits for decisions about your physical or mental health. Always consult a qualified professional for medical or psychological concerns.
+                        </p>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">
+                            <span>12</span><h2>Changes to This Policy</h2>
                         </div>
                         <p>
                             This Privacy Policy may be updated from time to time, for example to reflect new features or changes in legal requirements.
@@ -460,7 +499,7 @@
 
                     <div class="section">
                         <div class="section-title">
-                            <span>12</span><h2>Questions and Contact</h2>
+                            <span>13</span><h2>Questions and Contact</h2>
                         </div>
                         <p>
                             If you have questions or concerns about this Privacy Policy or how Stride Habits handles data, please refer to the developer contact details provided on the Stride Habits listing on Google Play.
@@ -471,26 +510,42 @@
                 <aside class="side-card">
                     <h3>Quick Summary (Not Legally Binding)</h3>
                     <p>
-                        This is a human-readable summary. The full policy text is the legally relevant version.
+                        This summary is for convenience only. The full policy text is the legally relevant version.
                     </p>
+
                     <div class="badge-list">
-                        <span class="badge">Personal habit tracker</span>
-                        <span class="badge">Data stored on your device</span>
-                        <span class="badge">Images only if you attach them</span>
-                        <span class="badge">Used to run and improve the app</span>
-                        <span class="badge">No automatic social sharing</span>
+                        <span class="badge">Student / varsity project</span>
+                        <span class="badge">Text data synced to Summit API</span>
+                        <span class="badge">Images stay on your device</span>
+                        <span class="badge">No ads, no data sale</span>
+                        <span class="badge">Not a medical app</span>
                     </div>
+
+                    <h4>How your data flows</h4>
+                    <ul class="side-list">
+                        <li><strong>Your device</strong> – habits, completions, settings, and images are stored locally.</li>
+                        <li><strong>Summit API</strong> – text-based habit data may sync while the project is active, then is deleted when the project ends.</li>
+                        <li><strong>Firebase</strong> – Google Sign-In and Crashlytics handle authentication and crash reports using anonymised technical data.</li>
+                    </ul>
+
+                    <h4>What we do <em>not</em> do</h4>
+                    <ul class="side-list">
+                        <li>No selling of your personal data.</li>
+                        <li>No social feed or automatic sharing of your habits.</li>
+                        <li>No personalised advertising SDKs inside the app.</li>
+                    </ul>
+
+                    <h4>Scope and risks</h4>
                     <p>
-                        Stride Habits keeps your habit data focused on your device and uses it to show your schedules, completions, and streaks.
-                        Limited technical data may be sent to trusted services (like crash reporting) to keep the App reliable.
-                        Your data is not sold to third parties.
+                        Stride Habits is a small-scale educational project with no long-term commercial roadmap. Remote data is intended to be removed when the project is shut down.
+                        The app is provided “as is”; while reasonable care is taken, bugs or downtime are possible.
                     </p>
                     <p>
-                        For deletion, you can remove entries inside the App or remove all local data by clearing the App’s storage or uninstalling it from your device.
+                        Stride Habits is a good-vibes habit tracker only. It does not replace professional medical, psychological, or other expert advice.
                     </p>
+
                     <small>
-                        This Policy is intended to support common privacy requirements for app stores such as Google Play.
-                        Privacy laws differ between countries; if you have specific compliance questions, consider obtaining independent legal advice.
+                        This Policy is designed to align with common privacy expectations on stores such as Google Play. Privacy and consumer-protection laws differ between countries; if you need specific legal guidance, please obtain independent legal advice.
                     </small>
                 </aside>
             </div>
